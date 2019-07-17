@@ -28,7 +28,7 @@ def ner_jsonl2json(input_data, lang=None, n_sents=10, use_morphology=False):
             spans = [doc.char_span(s, e, label=L) for s, e, L in ents]
             doc.ents = _cleanup_spans(spans)
             docs.append(doc)
-        json_docs.append(docs_to_json(docs, id=i))
+        json_docs.extend(docs_to_json(docs, id=i))
     return json_docs
 
 
